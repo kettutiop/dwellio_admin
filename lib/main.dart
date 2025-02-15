@@ -1,3 +1,5 @@
+import 'package:dwellio_admin/home_screen.dart';
+import 'package:dwellio_admin/opening_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -41,8 +43,8 @@ class MyHomePage extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.fromLTRB(100, 80, 80, 80),
             child: Image.network(
-              'https://img.staticmb.com/mbcontent/images/crop/uploads/2022/12/tips-to-find-house-for-rent_0_1200.jpg',
-              fit: BoxFit.scaleDown,
+              'https://learn.g2.com/hs-fs/hubfs/iStock-927978752.jpg?width=2376&name=iStock-927978752.jpg',
+              fit: BoxFit.fill,
             ),
           ),
         ),
