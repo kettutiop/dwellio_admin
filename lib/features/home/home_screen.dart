@@ -103,28 +103,6 @@ class _HomeScreenState extends State<HomeScreen>
                         tabController.animateTo(3);
                       },
                     ),
-                    // const SizedBox(
-                    //   height: 15,
-                    // ),
-                    // CustomDrawerItem(
-                    //   isSelected: tabController.index == 4,
-                    //   title: 'Homeplans',
-                    //   icon: Icons.foundation,
-                    //   ontap: () {
-                    //     tabController.animateTo(4);
-                    //   },
-                    // ),
-                    // const SizedBox(
-                    //   height: 15,
-                    // ),
-                    // CustomDrawerItem(
-                    //   isSelected: tabController.index == 5,
-                    //   title: 'Order Screen',
-                    //   icon: Icons.border_all,
-                    //   ontap: () {
-                    //     tabController.animateTo(5);
-                    //   },
-                    // ),
                     const SizedBox(
                       height: 15,
                     ),
@@ -162,7 +140,9 @@ class _HomeScreenState extends State<HomeScreen>
                       isSelected: tabController.index == 5,
                       title: 'Change password',
                       icon: Icons.password,
-                      ontap: () {},
+                      ontap: () {
+                        // showDialog(context: context, builder: ChangePassword());
+                      },
                     )
                   ],
                 ),
