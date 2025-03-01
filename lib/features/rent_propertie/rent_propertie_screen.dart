@@ -14,7 +14,8 @@ class RentPropertiesScreen extends StatelessWidget {
         "owner": "Shankar",
         "contact": "3448569752",
         "price": "10,000,000",
-        "rooms": "4"
+        "rooms": "4",
+        "status": "Rented"
       },
       {
         "name": "Vamana Tharavad",
@@ -23,10 +24,24 @@ class RentPropertiesScreen extends StatelessWidget {
         "owner": "Soman Pilla",
         "contact": "9568755958",
         "price": "18,000,000",
-        "rooms": "5"
+        "rooms": "5",
+        "status": "Pending"
+      },
+      {
+        "name": "Lake View Apartment",
+        "type": "Apartment",
+        "area": "Hyderabad",
+        "owner": "Rajesh Khanna",
+        "contact": "8547126935",
+        "price": "15,000,000",
+        "rooms": "3",
+        "status": "Rented"
       },
     ];
 
-    return PropertyTable(title: "Rent Properties", properties: rentProperties);
+    return PropertyTable(
+      title: "Rent Properties",
+      properties: rentProperties,
+    );
   }
 }

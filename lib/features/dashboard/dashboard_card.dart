@@ -1,12 +1,12 @@
 import 'package:dwellio_admin/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
-class DasboardCard extends StatelessWidget {
+class DashboardCard extends StatelessWidget {
   final String label;
   final Color iconbgcolor;
   final String value;
   final IconData icon;
-  const DasboardCard({
+  const DashboardCard({
     super.key,
     required this.label,
     required this.iconbgcolor,

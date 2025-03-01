@@ -14,7 +14,8 @@ class PropertieSale extends StatelessWidget {
         "owner": "Ramesh Kumar",
         "contact": "9876543210",
         "price": "15,000,000",
-        "rooms": "3"
+        "rooms": "3",
+        "status": "Sold"
       },
       {
         "name": "Oceanview Residency",
@@ -23,10 +24,24 @@ class PropertieSale extends StatelessWidget {
         "owner": "Priya Sharma",
         "contact": "8765432109",
         "price": "25,000,000",
-        "rooms": "4"
+        "rooms": "4",
+        "status": "Pending"
+      },
+      {
+        "name": "Mountain Heights",
+        "type": "Villa",
+        "area": "Shimla",
+        "owner": "Vikram Singh",
+        "contact": "7654321098",
+        "price": "30,000,000",
+        "rooms": "6",
+        "status": "Sold"
       },
     ];
 
-    return PropertyTable(title: "Sale Properties", properties: saleProperties);
+    return PropertyTable(
+      title: "Sale Properties",
+      properties: saleProperties,
+    );
   }
 }

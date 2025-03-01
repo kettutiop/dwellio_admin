@@ -87,6 +87,7 @@ class EmployScreen extends StatelessWidget {
                       cells: [
                         const DataCell(CircleAvatar(
                           radius: 20,
+                          backgroundImage: AssetImage('assets/james.jpg'),
                         )),
                         const DataCell(Text(
                           'John',
@@ -105,6 +106,7 @@ class EmployScreen extends StatelessWidget {
                       cells: [
                         const DataCell(CircleAvatar(
                           radius: 20,
+                          backgroundImage: AssetImage('assets/sarah.jpg'),
                         )),
                         const DataCell(Text(
                           'Jane',
