@@ -42,6 +42,7 @@ class RentPropertiesScreen extends StatelessWidget {
     return PropertyTable(
       title: "Rent Properties",
       properties: rentProperties,
+      isRentProperty: true, // Ensure this is set correctly
     );
   }
 }

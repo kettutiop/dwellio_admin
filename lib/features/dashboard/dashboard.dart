@@ -8,49 +8,37 @@ class Dashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, String>> recentlyRentedProperties = [
+    // Sample data for the table
+    final List<Map<String, String>> properties = [
       {
         'name': 'Property A',
         'type': 'Apartment',
         'area': '1000 sqft',
         'owner': 'John Doe',
         'contact': '123-456-7890',
-        'price': '\$1200',
+        'price': '\$200,000',
         'rooms': '3',
         'status': 'Rented',
       },
       {
         'name': 'Property B',
-        'type': 'House',
-        'area': '1500 sqft',
-        'owner': 'Jane Smith',
-        'contact': '987-654-3210',
-        'price': '\$1500',
-        'rooms': '4',
-        'status': 'Rented',
-      },
-    ];
-
-    final List<Map<String, String>> recentlySoldProperties = [
-      {
-        'name': 'Property C',
         'type': 'Villa',
         'area': '2000 sqft',
-        'owner': 'Alice Johnson',
-        'contact': '555-555-5555',
-        'price': '\$300,000',
+        'owner': 'Jane Smith',
+        'contact': '987-654-3210',
+        'price': '\$500,000',
         'rooms': '5',
         'status': 'Sold',
       },
       {
-        'name': 'Property D',
-        'type': 'Condo',
-        'area': '1200 sqft',
-        'owner': 'Bob Brown',
-        'contact': '444-444-4444',
-        'price': '\$250,000',
-        'rooms': '3',
-        'status': 'Sold',
+        'name': 'Property C',
+        'type': 'Townhouse',
+        'area': '1500 sqft',
+        'owner': 'Alice Johnson',
+        'contact': '555-123-4567',
+        'price': '\$300,000',
+        'rooms': '4',
+        'status': 'Pending',
       },
     ];
 
@@ -61,6 +49,7 @@ class Dashboard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            // Dashboard Cards
             const Wrap(
               alignment: WrapAlignment.start,
               runAlignment: WrapAlignment.start,
@@ -93,17 +82,16 @@ class Dashboard extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 40),
-            // Recently Rented Properties Section
+
+            const SizedBox(height: 40), // Spacing between cards and table
+
+            // Recently Rented/Sold Properties Table
             PropertyTable(
-              title: 'Recently Rented Properties',
-              properties: recentlyRentedProperties,
-            ),
-            const SizedBox(height: 40),
-            // Recently Sold Properties Section
-            PropertyTable(
-              title: 'Recently Sold Properties',
-              properties: recentlySoldProperties,
+              title: 'Recently Rented/Sold Properties',
+              properties: properties,
+              isRentProperty:
+                  true, // Set to false if you want to show sold properties
+              showSegmentedControl: false, // Hide the segmented control
             ),
           ],
         ),

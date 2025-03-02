@@ -22,7 +22,7 @@ class EmployScreen extends StatelessWidget {
               child: Row(
                 children: [
                   const Expanded(
-                    child: Text('Employ',
+                    child: Text('Employee',
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold)),
                   ),
@@ -46,7 +46,7 @@ class EmployScreen extends StatelessWidget {
                         builder: (context) => AddEmploy(),
                       );
                     },
-                    label: 'Add Employ',
+                    label: 'Add Employee',
                     iconData: Icons.add,
                   )
                 ],

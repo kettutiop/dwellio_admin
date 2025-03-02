@@ -75,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen>
                     ),
                     CustomDrawerItem(
                       isSelected: tabController.index == 1,
-                      title: 'Employ',
+                      title: 'Employee',
                       icon: Icons.architecture,
                       ontap: () {
                         tabController.animateTo(1);
@@ -108,6 +108,17 @@ class _HomeScreenState extends State<HomeScreen>
                     ),
                     CustomDrawerItem(
                       isSelected: tabController.index == 4,
+                      title: 'Change password',
+                      icon: Icons.password,
+                      ontap: () {
+                        // showDialog(context: context, builder: ChangePassword());
+                      },
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    CustomDrawerItem(
+                      isSelected: tabController.index == 5,
                       title: 'LogOut',
                       icon: Icons.logout,
                       ontap: () {
@@ -133,17 +144,6 @@ class _HomeScreenState extends State<HomeScreen>
                         );
                       },
                     ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    CustomDrawerItem(
-                      isSelected: tabController.index == 5,
-                      title: 'Change password',
-                      icon: Icons.password,
-                      ontap: () {
-                        // showDialog(context: context, builder: ChangePassword());
-                      },
-                    )
                   ],
                 ),
               ),

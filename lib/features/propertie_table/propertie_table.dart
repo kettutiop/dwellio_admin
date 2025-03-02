@@ -7,12 +7,15 @@ class PropertyTable extends StatefulWidget {
   final String title;
   final List<Map<String, String>> properties;
   final bool isRentProperty;
+  final bool
+      showSegmentedControl; // Controls visibility of the segmented control
 
   const PropertyTable({
     super.key,
     required this.title,
     required this.properties,
     this.isRentProperty = false,
+    this.showSegmentedControl = true, // Default to true
   });
 
   @override
@@ -28,6 +31,7 @@ class _PropertyTableState extends State<PropertyTable> {
       padding: const EdgeInsets.all(20),
       child: Column(
         children: [
+          // Table Heading
           Material(
             borderRadius: BorderRadius.circular(10),
             color: secondaryColor,
@@ -39,48 +43,53 @@ class _PropertyTableState extends State<PropertyTable> {
                     child: Text(
                       widget.title,
                       style: const TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.bold),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                  SizedBox(
-                    width: 300,
-                    child: CupertinoSegmentedControl<int>(
-                      children: {
-                        0: const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Text('All'),
-                        ),
-                        1: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child:
-                              Text(widget.isRentProperty ? 'Rented' : 'Sold'),
-                        ),
-                        2: const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Text('Pending'),
-                        ),
-                      },
-                      onValueChanged: (int value) {
-                        setState(() {
-                          _selectedSegment = value;
-                        });
-                      },
-                      groupValue: _selectedSegment,
-                      borderColor: Colors.grey.shade400,
-                      selectedColor: primaryColor,
-                      unselectedColor: Colors.white,
-                      padding: const EdgeInsets.all(4),
+                  // Conditionally show the CupertinoSegmentedControl
+                  if (widget.showSegmentedControl)
+                    SizedBox(
+                      width: 300,
+                      child: CupertinoSegmentedControl<int>(
+                        children: {
+                          0: const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            child: Text('All'),
+                          ),
+                          1: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child:
+                                Text(widget.isRentProperty ? 'Rented' : 'Sold'),
+                          ),
+                          2: const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            child: Text('Pending'),
+                          ),
+                        },
+                        onValueChanged: (int value) {
+                          setState(() {
+                            _selectedSegment = value;
+                          });
+                        },
+                        groupValue: _selectedSegment,
+                        borderColor: Colors.grey.shade400,
+                        selectedColor: primaryColor,
+                        unselectedColor: Colors.white,
+                        padding: const EdgeInsets.all(4),
+                      ),
                     ),
-                  ),
                 ],
               ),
             ),
           ),
+
           const SizedBox(height: 20),
-          // Replace Expanded with a SizedBox with a fixed height
+
+          // Property Table
           SizedBox(
-            height:
-                400, // Set a fixed height or use MediaQuery to calculate dynamically
+            height: 400, // Fixed height for the table
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: DecoratedBox(
@@ -90,7 +99,10 @@ class _PropertyTableState extends State<PropertyTable> {
                   border: Border.all(color: Colors.grey.shade300, width: 1),
                   boxShadow: const [
                     BoxShadow(
-                        color: Colors.black12, blurRadius: 8, spreadRadius: 2),
+                      color: Colors.black12,
+                      blurRadius: 8,
+                      spreadRadius: 2,
+                    ),
                   ],
                 ),
                 child: DataTable2(
@@ -145,7 +157,7 @@ class _PropertyTableState extends State<PropertyTable> {
                       ),
                       DataCell(TextButton(
                         onPressed: () {},
-                        child: const Text('View Details'),
+                        child: const Text('View'),
                       )),
                     ]);
                   }).toList(),
@@ -158,8 +170,9 @@ class _PropertyTableState extends State<PropertyTable> {
     );
   }
 
+  // Filter properties based on the selected segment
   List<Map<String, String>> get _filteredProperties {
-    if (_selectedSegment == 0) {
+    if (!widget.showSegmentedControl || _selectedSegment == 0) {
       return widget.properties;
     } else if (_selectedSegment == 1) {
       return widget.properties.where((property) {

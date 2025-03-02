@@ -15,7 +15,7 @@ class AddEmploy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomAlertDialog(
-      title: 'Add Employ',
+      title: 'Add Employee',
       content: Flexible(
         child: ListView(
           children: [

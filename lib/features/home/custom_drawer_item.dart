@@ -17,10 +17,11 @@ class CustomDrawerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: secondaryColor,
-      child: InkWell(
-        onTap: ontap,
+    return GestureDetector(
+      onTap: ontap,
+      child: Material(
+        borderRadius: BorderRadius.circular(8),
+        color: Colors.red.shade50,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child: Row(
